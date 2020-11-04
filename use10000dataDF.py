@@ -6,7 +6,8 @@ df = pd.read_csv('10000data.csv', index_col=0)
 # 平均
 start = time.time()
 for i in range(10):
-	df['average'] = (df['subjectA'] + df['subjectB'] + df['subjectC'] + df['subjectD'] + df['subjectE'])/5
+	# df['average'] = (df['subjectA'] + df['subjectB'] + df['subjectC'] + df['subjectD'] + df['subjectE'])/5
+	df['average'] = (df[['subjectA', 'subjectB', 'subjectC', 'subjectD', 'subjectE']].sum(axis=1))/5
 elapsed_time = time.time() - start
 print ("平均処理10回平均所要時間:{0}".format(elapsed_time/10) + "[sec]")
 
